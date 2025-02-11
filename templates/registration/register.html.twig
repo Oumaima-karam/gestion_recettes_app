@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container py-5 ">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-lg p-4 rounded-4 border-0">
+                    <h1 class="text-center mb-4 text-primary">Create an Account</h1>
+
+                    {{ form_errors(registrationForm) }}
+
+                    {{ form_start(registrationForm, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+                    
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.username, {
+                            'label': 'Nom',
+                            'attr': {'class': 'form-control shadow-sm rounded-pill border-0', 'placeholder': 'Username'}
+                        }) }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.email, {
+                            'attr': {'class': 'form-control shadow-sm rounded-pill border-0', 'placeholder': 'Email'}
+                        }) }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.plainPassword, {
+                            'label': 'Mot de passe',
+                            'attr': {'class': 'form-control shadow-sm rounded-pill border-0', 'placeholder': 'Password'}
+                        }) }}
+                    </div>
+
+                    <div class="form-check mb-4">
+                        {{ form_row(registrationForm.agreeTerms, {
+                            'attr': {'class': 'form-check-input shadow-sm'}
+                        }) }}
+                        <label class="form-check-label" for="{{ registrationForm.agreeTerms.vars.id }}">
+                            I agree to the <a href="#" class="text-decoration-none text-primary">terms and conditions</a>
+                        </label>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm rounded-pill">Register</button>
+                    </div>
+
+                    {{ form_end(registrationForm) }}
+                    <p class="text-center mt-3">Vous avez déjà un compte ? 
+                        <a href="{{ path('app_login') }}" class="text-primary fw-bold">Connectez-vous ici</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

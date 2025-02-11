@@ -1,0 +1,32 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title " Créer une catégorie" %}
+
+{% block body %}
+<div class="container my-4">
+    <div class="card shadow-lg border-dark" style="background-color: #f1f1f1;">
+        <div class="card-header text-white" style="background-color: #007bff;">
+            <h4 class="card-title">Formulaire de création de catégorie</h4>
+        </div>
+        <div class="card-body" style="background-color: #ffffff;">
+            <form method="post">
+                {{form_start(form)}}
+                <div class="mb-3">
+                    {{ form_row(form.name, { 'attr': {'class': 'form-control border-info'} }) }}
+                </div>
+
+                <button type="submit" class="btn btn-success" style="background-color: #28a745; border-color: #218838;">
+                    <i class="fas fa-check"></i> Ajouter la catégorie
+                </button>
+                {{form_end(form)}}
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="card-footer text-end">
+        <a class="btn btn-primary btn-sm" href="{{ path('admin.category.index') }}">
+            <i class="fas fa-arrow-left"></i> Retourner à la liste des catégories
+        </a>
+    </div>
+</div>
+{% endblock %}

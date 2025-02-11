@@ -1,0 +1,25 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title "Recette : " ~ recipe.title %}
+
+{% block body %}
+<div class="container my-4">
+    <div class="card shadow-lg border-dark" style="background-color: #f1f1f1;">
+        <div class="card-header text-white" style="background-color: #007bff;">
+            <h4 class="card-title">{{ recipe.title }}</h4>
+        </div>
+        <div class="card-body" style="background-color: #ffffff;">
+            <h5 class="card-title">Catégorie : {{ recipe.category.name | default('Non spécifiée') }}</h5>
+            <p class="card-text">
+                {{ recipe.content | nl2br }}
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="card-footer text-end">
+        <a class="btn btn-primary btn-sm" href="{{ path('admin.recipe.index') }}">
+            <i class="fas fa-arrow-left"></i> Retourner à la liste des recettes
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title " Créer une recette" %}
+
+{% block body %}
+<div class="container my-4">
+    <div class="card shadow-lg border-dark" style="background-color: #f1f1f1;">
+        <div class="card-header text-white" style="background-color: #007bff;">
+            <h4 class="card-title">Formulaire de création de recette</h4>
+        </div>
+        
+        <div class="card-body" style="background-color: #ffffff;">
+            <form method="post">
+                {{form_start(form)}}
+                <div class="mb-3">
+                    {{ form_row(form.title, { 'attr': {'class': 'form-control border-dark'} }) }}
+                </div>
+                
+                <div class="mb-3">
+                    {{ form_row(form.category, { 'attr': {'class': 'form-control border-dark'} }) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_row(form.content, { 'attr': {'class': 'form-control border-dark', 'rows': '5'} }) }}
+                </div>
+
+                <button type="submit" class="btn btn-success btn-sm" style="background-color: #28a745; border-color: #218838;">
+                    <i class="fas fa-check"></i> Ajouter la recette
+                </button>
+                {{ form_end(form) }}
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="card-footer text-end">
+        <a class="btn btn-primary btn-sm" href="{{ path('admin.recipe.index') }}">
+            <i class="fas fa-arrow-left"></i> Retourner à la liste des recettes
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+
+
